@@ -171,3 +171,4 @@ proc destroy*[K, V](self: LRUCache[K, V]) =
     #Reset the stats
     self.stats.currentBytes = 0
     self.stats.currentEntries = 0
+
