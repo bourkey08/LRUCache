@@ -4,8 +4,9 @@
 
 proc touch*[K](self: LRUSeq[K], key: K) {.inline.} =
     ## Moves a key to the front of the seq, if it does not exist an error is raised
-    if not self.entries.hasKey(key):
-        raise newException(KeyError, "Key does not exist in LRUSeq, cannot touch")
+    when compileOption("boundChecks"):
+        if not self.entries.hasKey(key):
+            raise newException(KeyError, "Key does not exist in LRUSeq, cannot touch")
 
     var entry = self.entries[key]
 

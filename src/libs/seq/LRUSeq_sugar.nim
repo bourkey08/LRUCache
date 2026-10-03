@@ -14,6 +14,6 @@ template contains*[K](self: LRUSeq[K], key: K): untyped =
     ## Returns true/false indicating if the key exists in the seq, allows for if key in cache: syntax to be used
     self.hasKey(key)
 
-template `[]`[K](self: LRUSeq[K], key: K): untyped =
+template `[]`*[K](self: LRUSeq[K], key: K): untyped =
     ## Returns true/false indicating if the key exists in the seq, allows for if cache[key}: syntax to be used
     self.hasKey(key)

@@ -15,8 +15,9 @@ proc newLRUSet*[K](maxEntries: int): LRUSet[K] =
 
 proc touch*[K](self: var LRUSet[K], key: K) {.inline.} =
     ## Moves a key to the front of the set, if it does not exist an error is raised
-    if not self.entries.hasKey(key):
-        raise newException(KeyError, "Key does not exist in LRUSet, cannot touch")
+    when compileOption("boundChecks"):
+        if not self.entries.hasKey(key):
+            raise newException(KeyError, "Key does not exist in LRUSet, cannot touch")
 
     #If the entry is already at the front there is nothing to do
     if self.first == key:
