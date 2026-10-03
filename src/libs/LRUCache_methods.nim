@@ -2,6 +2,7 @@
 #                                Implements the externally exposed methods for creation and manipulation of the LRU cache.
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 include "./LRUCache_sugar.nim"
+include "./LRUCache_size_helpers.nim"
 
 ## Constructor for the LRU cache object
 ## maxSize can be specified as a binary units string (e.g. 1MB, 1GB) or as an integer number of bytes, maxEntries is specified as an integer number of entries
